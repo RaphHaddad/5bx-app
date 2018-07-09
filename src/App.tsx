@@ -5,7 +5,7 @@ import {
   Route
 } from "react-router-dom";
 import './App.css';
-import LevelSelector from './LevelSelector';
+import DifficultySelector from './DifficultySelector';
 import WorkOut from './WorkOut';
 
 class App extends React.Component {
@@ -17,7 +17,7 @@ class App extends React.Component {
         </div>
         <Router>
           <div>
-            <Route exact={true} path="/" component={LevelSelector}/>
+            <Route exact={true} path="/" component={DifficultySelector}/>
             <Route path="/WorkOut" component={WorkOut}/>
           </div>
         </Router>

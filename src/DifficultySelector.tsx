@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { ChangeEvent, FormEvent } from 'react';
 import { Redirect } from "react-router-dom";
-import LevelSelectorState from './LevelSelectorState';
+import LevelSelectorState from './DifficultySelectorState';
 
-class LevelSelector extends React.Component<any, LevelSelectorState> {
+class DifficultySelector extends React.Component<any, LevelSelectorState> {
 
     constructor(props: any) {
         super(props);
@@ -52,13 +52,16 @@ class LevelSelector extends React.Component<any, LevelSelectorState> {
                         </form>
                     </div>
                 ) : (
-                    <Redirect to="/WorkOut"/>
+                    <Redirect to={{
+                        pathname: "/WorkOut",
+                        state: this.state
+                    }} />
                 )
         )
     }
 
     private handleSubmit(event: FormEvent<HTMLFormElement>): void {
-        this.setState({isSubmitted: true})
+        this.setState({isSubmitted: true, "chart": this.state.chart})
         event.preventDefault();
     }
 
@@ -71,4 +74,4 @@ class LevelSelector extends React.Component<any, LevelSelectorState> {
     }
 }
 
-export default LevelSelector;
+export default DifficultySelector;
