@@ -7,7 +7,7 @@ class DifficultySelector extends React.Component<any, LevelSelectorState> {
 
     constructor(props: any) {
         super(props);
-        this.state = new LevelSelectorState();
+        this.state = new LevelSelectorState("Chart 1", "D-");
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChartChange = this.handleChartChange.bind(this);
@@ -35,18 +35,18 @@ class DifficultySelector extends React.Component<any, LevelSelectorState> {
                             Levels:
                             </label>
                             <select value={this.state.level} name="level" onChange={this.handleLevelChange}>
-                                <option>A+</option>
-                                <option>A</option>
-                                <option>A-</option>
-                                <option>B+</option>
-                                <option>B</option>
-                                <option>B-</option>
-                                <option>C+</option>
-                                <option>C</option>
-                                <option>C-</option>
-                                <option>D+</option>
-                                <option>D</option>
                                 <option>D-</option>
+                                <option>D</option>
+                                <option>D+</option>
+                                <option>C-</option>
+                                <option>C</option>
+                                <option>C+</option>
+                                <option>B-</option>
+                                <option>B</option>
+                                <option>B+</option>
+                                <option>A-</option>
+                                <option>A</option>
+                                <option>A+</option>
                             </select>
                             <input type="submit" value="Submit" />
                         </form>

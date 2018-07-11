@@ -10,7 +10,7 @@ class WorkOut extends React.Component<any, WorkOutState> {
     constructor(props: any) {
         super(props);
         this.level = props.history.location.state as DifficultySelectorState;
-        this.state = new WorkOutState(this.level.chart, this.level.level);
+        this.state = new WorkOutState(parseInt(this.level.chart.replace("Chart ", ""), 10), this.level.level);
         this.nextExercise = this.nextExercise.bind(this);
         this.decreateCountDown();
     }
@@ -23,7 +23,7 @@ class WorkOut extends React.Component<any, WorkOutState> {
                     <div>
                         {this.state.currentExercise <= 5 ? (
                             <div>
-                                <Exercise chart={1} exercise={this.state.currentExercise} level={"A-"} />
+                                <Exercise chart={this.state.chart} exercise={this.state.currentExercise} level={this.state.level} />
                                 <div onClick={this.nextExercise}>Next Exercise</div>
                             </div>
                         ) : (

@@ -1,7 +1,8 @@
 class DifficultySelectorState {
-    public chart: string;
-    public level: string;
     public isSubmitted = false;
+
+    constructor(public chart: string, public level: string) {
+    }
 }
 
 export default DifficultySelectorState
