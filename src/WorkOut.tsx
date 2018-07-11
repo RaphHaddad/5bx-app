@@ -21,8 +21,14 @@ class WorkOut extends React.Component<any, WorkOutState> {
                 <h1>Chart: {this.state.chart}, Level: {this.state.level}</h1>
                 {this.state.startExercise ? (
                     <div>
-                        <Exercise chart={1} exercise={this.state.currentExercise} level={"A-"} />
-                        <div onClick={this.nextExercise}>Next Exercise</div>
+                        {this.state.currentExercise <= 5 ? (
+                            <div>
+                                <Exercise chart={1} exercise={this.state.currentExercise} level={"A-"} />
+                                <div onClick={this.nextExercise}>Next Exercise</div>
+                            </div>
+                        ) : (
+                            <div>finished!</div>
+                        )}
                     </div>
                 ) : (
                     <h2>You have 11 minutes start in {this.state.countDown}...</h2>
