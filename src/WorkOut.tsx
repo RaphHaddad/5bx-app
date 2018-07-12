@@ -1,3 +1,4 @@
+import * as moment from 'moment';
 import * as React from 'react';
 import { setTimeout } from 'timers';
 import DifficultySelectorState from './DifficultySelectorState';
@@ -21,6 +22,7 @@ class WorkOut extends React.Component<any, WorkOutState> {
                 <h1>Chart: {this.state.chart}, Level: {this.state.level}</h1>
                 {this.state.startExercise ? (
                     <div>
+                        <h2>You have {this.state.timeLeft.format("mm:ss")} minutes left...</h2>
                         {this.state.currentExercise <= 5 ? (
                             <div>
                                 <Exercise chart={this.state.chart} exercise={this.state.currentExercise} level={this.state.level} />
@@ -48,7 +50,18 @@ class WorkOut extends React.Component<any, WorkOutState> {
                 this.decreateCountDown();
             }, 1000);
         } else {
-            this.setState({ startExercise: true });
+            this.setState({ startExercise: true, timeLeft: moment("1100", "mmss") });
+            this.startCountDown();
+        }
+    }
+
+    private startCountDown() {
+        const timeUp = moment("0000", "mmss");
+        if (this.state.timeLeft.isAfter(timeUp)) {
+            setTimeout(() => {
+                this.setState({ startExercise: true, timeLeft: this.state.timeLeft.subtract(1, "s") });
+                this.startCountDown();
+            }, 1000);
         }
     }
 }

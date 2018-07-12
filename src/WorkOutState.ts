@@ -1,6 +1,8 @@
+import * as moment from 'moment';
+
 class WorkOutState {
     public countDown: number;
-    public timeLeft: Date;
+    public timeLeft: moment.Moment;
     public startExercise: boolean;
     public currentExercise: number;
 
