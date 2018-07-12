@@ -11,10 +11,12 @@ class Exercise extends React.Component<ExerciseProps, ExerciseState> {
         this.state = this.setRepsAndImage(this.props.exercise);
         return (
             <div>
-                <h2>Exercise {this.props.exercise}</h2>
+                <h3>Exercise {this.props.exercise}</h3>
                 <p>Chart: {this.props.chart}, Exercise: {this.props.exercise}</p>
-                <h3>Please do {this.state.reps} of:</h3>
-                <img src={this.state.image} />
+                <h4>Please do {this.state.reps} of:</h4>
+                <div className="image-wrapper">
+                    <img src={this.state.image} />
+                </div>
             </div>
         )
     }
