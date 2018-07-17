@@ -6,7 +6,7 @@ class WorkOutState {
     public startExercise: boolean;
     public currentExercise: number;
 
-    constructor(public chart: number, public level: string) {
+    constructor(public chart: number, public level: string, public timeUp = false) {
         this.countDown = 3;
         this.startExercise = false;
         this.currentExercise = 1;
