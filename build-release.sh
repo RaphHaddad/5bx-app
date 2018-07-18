@@ -1,3 +1,4 @@
+rm -rf docs
 rm -rf build
 npm run build
 mv build docs
