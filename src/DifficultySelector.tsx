@@ -1,17 +1,29 @@
 import * as React from 'react';
 import { ChangeEvent, FormEvent } from 'react';
 import { Redirect } from "react-router-dom";
-import LevelSelectorState from './DifficultySelectorState';
+import DifficultySelectorState from './DifficultySelectorState';
 
-class DifficultySelector extends React.Component<any, LevelSelectorState> {
+class DifficultySelector extends React.Component<any, DifficultySelectorState> {
 
     constructor(props: any) {
         super(props);
-        this.state = new LevelSelectorState("Chart 1", "D-");
+
+        
+        const previousDifficultyJson = localStorage.getItem("difficultySelector");
+        if (previousDifficultyJson) {
+            let previousDifficulty = JSON.parse(previousDifficultyJson) as DifficultySelectorState;
+            previousDifficulty = new DifficultySelectorState(previousDifficulty.chart, previousDifficulty.level);
+            previousDifficulty.isSubmitted = false;
+            previousDifficulty.incrementDifficulty();
+            this.state = previousDifficulty;
+        } else {
+            this.state = new DifficultySelectorState("Chart 1", "D-");
+        }
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChartChange = this.handleChartChange.bind(this);
         this.handleLevelChange = this.handleLevelChange.bind(this);
+
     }
 
     public render() {
