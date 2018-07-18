@@ -1,5 +1,5 @@
-rm -rf build
 rm -rf docs
+rm -rf build
 npm run build
 mv build docs
 git add -A
