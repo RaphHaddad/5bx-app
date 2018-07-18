@@ -73,6 +73,8 @@ class WorkOut extends React.Component<any, WorkOutState> {
                 this.setState({ startExercise: true, timeLeft: this.state.timeLeft.subtract(1, "s") });
                 if (!this.isFinished()) {
                     this.countDown();
+                } else {
+                    localStorage.setItem(DifficultySelectorState.localStorage, JSON.stringify(this.level));
                 }
             }, 1000);
         } else {
