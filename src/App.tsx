@@ -14,8 +14,6 @@ class App extends React.Component {
       <div className="container">
         <div className="row">
           <h1>5BX</h1>
-          <p>The 5BX (Five Basic Exercises) Plan is an exercise program developed for the Royal Canadian Air Force (RCAF) by Bill Orban in the late 1950s, first published in 1961 (copied from Wikipedia)</p>
-          <p>I created this app because I wanted to learn React and I actually use this workout. Source: https://github.com/RaphHaddad/5bx-app</p>
         </div>
         <Router>
           <div>

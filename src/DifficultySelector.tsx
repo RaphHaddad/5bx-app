@@ -30,6 +30,10 @@ class DifficultySelector extends React.Component<any, DifficultySelectorState> {
         return (
             !this.state.isSubmitted ? (
                     <div>
+                    <p>The 5BX (Five Basic Exercises) Plan is an exercise program developed for the Royal Canadian Air Force (RCAF) by Bill Orban in the late 1950s, first published in 1961 (copied from Wikipedia)</p>
+                    <p>I created this app because I wanted to learn React and I actually use this workout. Source: 
+                        <a href="https://github.com/RaphHaddad/5bx-app" target="blank">https://github.com/RaphHaddad/5bx-app</a>
+                    </p>
                     <p>Select Level</p>
                         <form onSubmit={this.handleSubmit}>
                             <label>
